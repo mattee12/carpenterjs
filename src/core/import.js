@@ -9,14 +9,13 @@ function loadScript(path){
     var scriptTag = document.createElement('script');
     scriptTag.src = path;
     scriptTag.async = false;
-    document.head.appendChild(scriptTag);
     return new Promise(resolve => {
-        s.onerror = function(){
-            s.onload = null;
+        scriptTag.onerror = function(){
+            scriptTag.onload = null;
             resolve(false);
         }
-        s.onload = function(){
-            s.onerror = null;
+        scriptTag.onload = function(){
+            scriptTag.onerror = null;
 
             //Remove module from REGISTERED_SCRIPTS.
             var index = REGISTERED_SCRIPTS.indexOf(path);
@@ -26,6 +25,7 @@ function loadScript(path){
 
             resolve(true);
         }
+        document.head.appendChild(scriptTag);
     });
 }
 
