@@ -7,9 +7,9 @@ function capitalizeEveryEvenCharacter(string){
     var result = "";
     for(var i = 0; i < string.length; i++){
         if(i % 2 == 0){
-            result += string[i].toUpperCase();
-        }else{
             result += string[i];
+        }else{
+            result += string[i].toUpperCase();
         }
     }
     return result;
