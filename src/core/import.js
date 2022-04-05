@@ -1,5 +1,18 @@
 var REGISTERED_SCRIPTS = [];
 var LOADED_SCRIPTS = [];
+var WAITING_FOR_SCRIPTS = [];
+
+/** 
+ *Register a function which is called when all scripts are loaded.
+ *@param {function} callback - The function to call.
+ */
+function registerWaitingForScripts(callback){
+    if(REGISTERED_SCRIPTS.length == 0){
+        callback();
+    }else{
+        WAITING_FOR_SCRIPTS.push(callback);
+    }
+}
 
 /**
  *Load a single script.
@@ -63,5 +76,6 @@ async function loadScripts(modules){
         WAITING_FOR_SCRIPTS.forEach((callback) => {
             callback();
         });
+        WAITING_FOR_SCRIPTS = [];
     }
 }
