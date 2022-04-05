@@ -16,5 +16,6 @@ loadScripts(["util/strings"]);
 registerWaitingForScripts(function(){
     //Example function from util/strings.
     console.log(capitalizeEveryEvenCharacter("hello world"));
+    //Output: hElLo wOrLd
 });
 ```
