@@ -14,6 +14,7 @@ class Icon{
     constructor(e, p){
         this.e = e;
         this.p = p;
+        this.type = p["type"];
     }
     deploy(){
         return new Promise(async resolve => {
@@ -36,7 +37,7 @@ class Icon{
                             colorElem.style.fill = this.p[k];
                             break;
                         }
-                        debugPrint("Could not find color" + k + " for " + this.p["type"]);
+                        debugPrint("Could not find " + k + " for " + this.type);
                         break;
                     }
                     case "fadein":
