@@ -5,6 +5,7 @@ window.onload = function() {
     importModuleTag.src = 'https://mattee.net/scripts/carpenterjs/core/import.js?version=' + createRandomString(10);
     importModuleTag.onload = async function(){
         loadScripts([
+            "util/debug",
             "engine/engine",
             "init",
         ]);
