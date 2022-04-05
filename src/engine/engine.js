@@ -12,6 +12,11 @@ var elementTypes = [
 ];
 
 function handleElements(){
+    var styleElement = document.createElement("link")
+    styleElement.rel = "stylesheet";
+    styleElement.href = "https://mattee.net/assets/css/carpenter.css";
+    document.head.appendChild(styleElement);
+
     var elements = listTree(document);
     elements.forEach((e) => {
         var list = e.classList;
