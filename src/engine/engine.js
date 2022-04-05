@@ -88,6 +88,7 @@ function listTree(e){
             list = list.concat(lt);
         }
         if(el.classList != null &&
+        el.classList.length != 0 &&
         (elementTypes.includes(el.classList[0]) ||
         (el.classList[0].split("-") != undefined) && el.classList[0].split("-")[0] == "icon")){
             list.push(el);
