@@ -1,15 +1,16 @@
 /**
- *Generates a random string of the given length.
- *@param {number} length - The length of the string.
- *@returns {string} - The generated string.
+ *A function to capitalize every even character in a string.
+ *@param {string} string - The string to transform.
+ *@returns {string} - The transformed string.
  */
-function createRandomString(length){
-    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnpoqrstuvwxyz0123456789";
-
-    let result = "";
-    let charactersLength = characters.length;
-    for(let i = 0; i < length; ++i){
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+function capitalizeEveryEvenCharacter(string){
+    var result = "";
+    for(var i = 0; i < string.length; i++){
+        if(i % 2 == 0){
+            result += string[i].toUpperCase();
+        }else{
+            result += string[i];
+        }
     }
     return result;
 }
