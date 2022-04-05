@@ -89,7 +89,7 @@ function listTree(e){
         }
         if(el.classList != null &&
         (elementTypes.includes(el.classList[0]) ||
-        el.classList[0].split("-")[0] == "icon")){
+        (el.classList[0].split("-")) && el.classList[0].split("-")[0] == "icon")){
             list.push(el);
         }
     }
