@@ -40,8 +40,6 @@ function handleElements(){
         handleElement(e, props);
     });
     return elements;
-    //console.log("Our counter: " + counter);
-    //console.log("Real: " + document.getElementsByTagName("*").length);
 }
 
 async function handleElement(e, p){
