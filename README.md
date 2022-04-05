@@ -8,7 +8,7 @@ A JS library for building websites.
 ```
 ### 2. Create scripts/init.js:
 ```
-//Import modules.
+//Importing an example module.
 loadScripts(["util/strings"]);
 
 //This is called when every module is loaded. Make this the entry
