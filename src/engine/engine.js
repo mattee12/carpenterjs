@@ -87,10 +87,10 @@ function listTree(e){
         if(lt != null && lt.length != 0){
             list = list.concat(lt);
         }
-        if(el.classList != null){
-            if(elementTypes.includes(el.classList[0])){
-                list.push(el);
-            }
+        if(el.classList != null &&
+        (elementTypes.includes(el.classList[0]) ||
+        p["type"].split("-")[0] == "icon")){
+            list.push(el);
         }
     }
     return list;
