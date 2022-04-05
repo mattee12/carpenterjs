@@ -6,7 +6,7 @@ var LOADED_SCRIPTS = [];
  *@param {string} path - The path to the script.
  *@returns {Promise<boolean>} - Returns true if the script was loaded successfully.
  */
-function loadScript(path){
+function loadScript(path, name){
     var scriptTag = document.createElement('script');
     scriptTag.src = path;
     scriptTag.async = false;
@@ -23,7 +23,7 @@ function loadScript(path){
             scriptTag.onerror = null;
 
             //Remove module from REGISTERED_SCRIPTS.
-            var index = REGISTERED_SCRIPTS.indexOf(path);
+            var index = REGISTERED_SCRIPTS.indexOf(name);
             if(index > -1){
                 REGISTERED_SCRIPTS.splice(index, 1);
             }
@@ -51,9 +51,9 @@ async function loadScripts(modules){
     var errorCount = 0;
     for(var i = 0; i < length; i++){
         var e = modules[i];
-        var result = await loadScript("https://mattee.net/scripts/carpenterjs/" + e.toString() + ".js?version=" + createRandomString(10));
+        var result = await loadScript("https://mattee.net/scripts/carpenterjs/" + e.toString() + ".js?version=" + createRandomString(10), e.toString());
         if(!result){
-            result = await loadScript("scripts/" + e.toString() + ".js?version=" + createRandomString(10));
+            result = await loadScript("scripts/" + e.toString() + ".js?version=" + createRandomString(10), e.toString());
             if(!result){console.log("Failed to load " + e.toString()); errorCount++;}
         }
         console.log("loaded " + e);

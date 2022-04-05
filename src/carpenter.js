@@ -4,7 +4,7 @@ window.onload = function() {
     var importModuleTag = document.createElement('script');
     importModuleTag.src = 'https://mattee.net/scripts/carpenterjs/core/import.js?version=' + createRandomString(10);
     importModuleTag.onload = async function(){
-        loadScript("scripts/init.js?version=" + createRandomString(10));
+        loadScript("scripts/init.js?version=" + createRandomString(10), "init");
     }
     document.head.appendChild(importModuleTag);
 };
