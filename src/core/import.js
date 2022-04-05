@@ -1,4 +1,5 @@
 var REGISTERED_SCRIPTS = [];
+var LOADED_SCRIPTS = [];
 
 /**
  *Load a single script.
@@ -10,6 +11,10 @@ function loadScript(path){
     scriptTag.src = path;
     scriptTag.async = false;
     return new Promise(resolve => {
+        if(LOADED_SCRIPTS.includes(path)){
+            resolve(true);
+        }
+
         scriptTag.onerror = function(){
             scriptTag.onload = null;
             resolve(false);
@@ -22,6 +27,9 @@ function loadScript(path){
             if(index > -1){
                 REGISTERED_SCRIPTS.splice(index, 1);
             }
+
+            //Add module to LOADED_SCRIPTS.
+            LOADED_SCRIPTS.push(path);
 
             resolve(true);
         }
@@ -43,9 +51,9 @@ async function loadScripts(modules){
     var errorCount = 0;
     for(var i = 0; i < length; i++){
         var e = modules[i];
-        var result = await loadScript("https://mattee.net/scripts/carpenterjs/" + e.toString() + ".js");
+        var result = await loadScript("https://mattee.net/scripts/carpenterjs/" + e.toString() + ".js?version=" + createRandomString(10));
         if(!result){
-            result = await loadScript("scripts/" + e.toString() + ".js");
+            result = await loadScript("scripts/" + e.toString() + ".js?version=" + createRandomString(10));
             if(!result){console.log("Failed to load " + e.toString()); errorCount++;}
         }
         console.log("loaded " + e);
