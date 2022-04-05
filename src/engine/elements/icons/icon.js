@@ -30,9 +30,15 @@ class Icon{
                         applyStyle(el, {"height": this.p[k]});
                         break;
                     case "color1":
-                    case "color2":
-                        applyStyle(el.querySelector("#" + k), {"fill": this.p[k]});
+                    case "color2": {
+                        var colorElem = el.querySelector("#" + k);
+                        if(colorElem != null){
+                            colorElem.style.fill = this.p[k];
+                            break;
+                        }
+                        debugPrint("Could not find color" + k + " for " + this.p["type"]);
                         break;
+                    }
                     case "fadein":
                         applyStyle(el, {"animation": "fadein .25s linear"});
                         break;
