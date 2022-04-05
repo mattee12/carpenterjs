@@ -7,11 +7,6 @@ loadScripts([
 ]);
 
 var elementTypes = [
-    "icon-change",
-    "icon-tick",
-    "icon-cross",
-    "icon-distance",
-    "icon-ktrans",
     "calendar",
     "dialog_alert"
 ];
@@ -44,7 +39,7 @@ function handleElements(){
 
 async function handleElement(e, p){
     //await placeholder(e, p);
-    if(ICON_PATH[p["type"]] != null){
+    if(p["type"].split("-")[0] == "icon"){
         var el = new Icon(e, p);
         await el.deploy();
         REGISTERED_ELEMENTS.pop();

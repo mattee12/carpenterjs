@@ -1,7 +1,15 @@
-var ICON_PATH = {
-    "icon-change": "assets/icons/change.svg",
-    "icon-distance": "assets/icons/distance.svg"
-}
+var ICON_PATH = {}
+var ICON_TYPES = [
+    "icon-change",
+    "icon-tick",
+    "icon-distance",
+    "icon-cross",
+]
+
+ICON_TYPES.forEach((type) => {
+    ICON_PATH[type] = "https://mattee.net/assets/icons/" + type.split("-")[1] + ".svg";
+});
+
 class Icon{
     constructor(e, p){
         this.e = e;
