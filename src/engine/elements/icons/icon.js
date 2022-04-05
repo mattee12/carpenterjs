@@ -7,7 +7,7 @@ var ICON_TYPES = [
 ]
 
 ICON_TYPES.forEach((type) => {
-    ICON_PATH[type] = "https://mattee.net/assets/icons/" + type.split("-")[1] + ".svg";
+    ICON_PATH[type] = "assets/icons/" + type.split("-")[1] + ".svg";
 });
 
 class Icon{
