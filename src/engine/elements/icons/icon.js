@@ -22,22 +22,23 @@ class Icon extends Element{
 
     #deployNetwork(){
         return new Promise(async resolve => {
-        this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-        Object.keys(this.p).forEach((k) => {
-            switch(k){
-                case "color1":
-                case "color2": {
-                    var colorElem = this.el.querySelector("#" + k);
-                    if(colorElem != null){
-                        colorElem.style.fill = this.p[k];
+            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+            Object.keys(this.p).forEach((k) => {
+                switch(k){
+                    case "color1":
+                    case "color2": {
+                        var colorElem = this.el.querySelector("#" + k);
+                        if(colorElem != null){
+                            colorElem.style.fill = this.p[k];
+                            break;
+                        }
+                        debugPrint("Could not find " + k + " for " + this.type);
                         break;
                     }
-                    debugPrint("Could not find " + k + " for " + this.type);
-                    break;
                 }
-            }
-        });
-        resolve(true);
+            });
+            super.#deploy();
+            resolve(true);
         });
    }
 }
