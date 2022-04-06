@@ -15,7 +15,7 @@ class Icon extends Element{
         super(e, p);
         this.#deployNetwork();
     }
-    async #deployNetwork(){
+    #deployNetwork(){
            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
            Object.keys(this.p).forEach((k) => {
                switch(k){
