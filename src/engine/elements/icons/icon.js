@@ -16,6 +16,7 @@ class Icon extends Element{
         this.#deployNetwork();
     }
     #deployNetwork(){
+        return new Promise(resolve => {
            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
            Object.keys(this.p).forEach((k) => {
                switch(k){
@@ -32,5 +33,7 @@ class Icon extends Element{
                }
            });
            super.#deploy();
+           resolve(true);
+        });
    }
 }
