@@ -10,7 +10,7 @@ ICON_TYPES.forEach((type) => {
     ICON_PATH[type] = "assets/icons/" + type.split("-")[1] + ".svg";
 });
 
-class Icon{
+class Icon extends Element{
     constructor(e, p){
         this.e = e;
         this.p = p;
@@ -48,7 +48,7 @@ class Icon{
                         break;
                 }
             });
-            this.e.parentElement.replaceChild(el, this.e);
+            this.e.appendChild(el);
             resolve(true);
         });
     }
