@@ -13,10 +13,9 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
-        this.#deploy();
+        this.#deployRemote();
     }
-    #deploy(){
-
+    #deployRemote = async function(){
            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
            mergeStyle(el, this.e);
            Object.keys(this.p).forEach((k) => {
@@ -34,7 +33,6 @@ class Icon extends Element{
                }
            });
            this.e.parentElement.replaceChild(el, this.e);
-           resolve(true);
-
+           super.deploy();
    }
 }
