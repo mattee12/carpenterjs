@@ -32,7 +32,7 @@ function applyStyle(e, s){
  * @param {HtmlElement} source 
  */
 function mergeStyle(target, source){
-    source.style.forEach(prop=>{
-        target.style[prop] = source.style[prop];
+    Object.keys(source.style).forEach(k => {
+        target.style[k] = source.style[k];
     });
 }
