@@ -25,3 +25,15 @@ function applyStyle(e, s){
         e.style[ss] = s[se];
     }
 }
+
+/**
+ * Merge the CSS properties of the source element into the target element.
+ * @param {HtmlElement} target 
+ * @param {HtmlElement} source 
+ */
+function mergeStyle(target, source){
+    var s = getComputedStyle(source);
+    for(var i = 0; i < s.length; i++){
+        target.style[s[i]] = s[s[i]];
+    }
+}
