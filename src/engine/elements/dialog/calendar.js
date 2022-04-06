@@ -8,22 +8,25 @@ class DatePicker{
     }
 
     deploy(){
-        Object.keys(this.p).forEach((k) => {
-            switch(k){
-                case "w":
-                case "width":
-                    applyStyle(this.e, {"width": this.p[k]});
-                    break;
-                case "h":
-                case "height":
-                    applyStyle(this.e, {"height": this.p[k]});
-                    break;
-                default:
-                    console.log("Invalid property for " + this.p["type"] + ": " + k);
-                    break;
-            }
+        return new Promise(resolve => {
+            Object.keys(this.p).forEach((k) => {
+                switch(k){
+                    case "w":
+                    case "width":
+                        applyStyle(this.e, {"width": this.p[k]});
+                        break;
+                    case "h":
+                    case "height":
+                        applyStyle(this.e, {"height": this.p[k]});
+                        break;
+                    default:
+                        console.log("Invalid property for " + this.p["type"] + ": " + k);
+                        break;
+                }
+            });
+            this.#createCalendar(e);
+            resolve(true);
         });
-        this.#createCalendar(e);
     }
 
     addEventListener(et, callback){
