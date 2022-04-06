@@ -51,7 +51,9 @@ async function handleElement(e, p){
     } else{
         switch(p["type"]){
             case "calendar":
-                loadCalendar(e);
+                var el = new Calendar(e, p);
+                await el.deploy();
+                REGISTERED_ELEMENTS.pop();
                 break;
             default:
                 console.log("Invalid type: " + p["type"]);
@@ -73,7 +75,7 @@ function placeholder(e, p){
             if(p["height"] != null){applyStyle(e, {"height": p["height"]});}
             else{applyStyle(e, {"height": p["h"]});}
             var pE = document.createElement("img");
-            pE.src = "assets/icons/loading_white.svg";
+            pE.src = "https://mattee.net/assets/icons/loading_white.svg";
             applyStyle(pE, {"animation": "spin 1s ease-in-out infinite", "width": "100%", "height": "100%"});
             e.appendChild(pE);
         }

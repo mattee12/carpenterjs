@@ -1,32 +1,28 @@
-function loadCalendar(e){
-    //if (parent.querySelector(".calendar") != null){
-        //var e = parent.querySelector(".calendar");
-        var dp = new DatePicker(e);
-        return dp;
-    //}
-}
-
 class DatePicker{
     currentDate; e; listeners;
-    constructor(e){
+    constructor(e, p){
         this.e = e;
+        this.p = p;
+        this.listeners = {};
+        this.currentDate = new Date();
+    }
+
+    deploy(){
         Object.keys(this.p).forEach((k) => {
             switch(k){
                 case "w":
                 case "width":
-                    applyStyle(el, {"width": this.p[k]});
+                    applyStyle(this.e, {"width": this.p[k]});
                     break;
                 case "h":
                 case "height":
-                    applyStyle(el, {"height": this.p[k]});
+                    applyStyle(this.e, {"height": this.p[k]});
                     break;
                 default:
                     console.log("Invalid property for " + this.p["type"] + ": " + k);
                     break;
             }
         });
-        this.listeners = {};
-        this.currentDate = new Date();
         this.#createCalendar(e);
     }
 
