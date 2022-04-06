@@ -59,7 +59,6 @@ class DatePicker{
 
     #clearCalendar(e){
         e.querySelectorAll("*").forEach((child) => {
-            if(child.classList.includes("calendar")) console.log("DONT REMOVE CALENDAR");
             child.remove();
         });
     }
@@ -71,7 +70,7 @@ class DatePicker{
         var month = d.getMonth();
         var year = d.getFullYear();
     
-        applyStyle(e, {"display": "flex", "flex-direction": "column", "overflow": "hidden", "box-sizing": "border-box", "width": "100%", "height": "100%",
+        applyStyle(e, {"display": "flex", "flex-direction": "column", "overflow": "hidden", "box-sizing": "border-box",
             "background-color": "white", "padding": "15px", "border-radius": "24px", "box-shadow": "2px 2px 4px rgba(0, 0, 0, 0.35)"});
     
         //DIV of the first row, which contains the YEAR label, the MONTH label, and the two ARROWS.
