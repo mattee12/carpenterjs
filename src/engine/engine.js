@@ -7,7 +7,7 @@ loadScripts([
 ]);
 
 var elementTypes = [
-    "calendar",
+    "datepicker",
     "dialog_alert"
 ];
 
@@ -50,8 +50,8 @@ async function handleElement(e, p){
         REGISTERED_ELEMENTS.pop();
     } else{
         switch(p["type"]){
-            case "calendar":
-                var el = new Calendar(e, p);
+            case "datepicker":
+                var el = new DatePicker(e, p);
                 await el.deploy();
                 REGISTERED_ELEMENTS.pop();
                 break;
