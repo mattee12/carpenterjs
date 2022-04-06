@@ -48,7 +48,7 @@ async function handleElement(e, p){
     await placeholder(e, p);
     if(p["type"].split("-")[0] == "icon"){
         var el = new Icon(e, p);
-        await el.deploy();
+        //await el.deploy();
         REGISTERED_ELEMENTS.pop();
     } else{
         switch(p["type"]){

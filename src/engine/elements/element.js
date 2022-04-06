@@ -4,6 +4,7 @@ class Element {
         this.p = p;
         this.type = p["type"];
         this.#handleProperties();
+        this.#deploy();
     }
 
     #handleProperties(){
@@ -24,4 +25,6 @@ class Element {
             }
         });
     }
+
+    #deploy(){}
 }

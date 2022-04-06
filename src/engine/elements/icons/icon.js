@@ -14,7 +14,7 @@ class Icon extends Element{
     constructor(e, p){
         super(e, p);
     }
-    deploy(){
+    #deploy(){
         return new Promise(async resolve => {
             var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
             mergeStyle(el, this.e);
