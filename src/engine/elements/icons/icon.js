@@ -15,15 +15,6 @@ class Icon extends Element{
         super(e, p);
         placeholder(e, p);
         this.#loadAssets();
-    }
-
-    #loadAssets = async function(){
-        this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-        this.#deploy();
-    }
-
-    #deploy(){
-        super.#deploy();
         super.#handleProperties(function(k){
             switch(k){
                 case "color1":
@@ -38,5 +29,10 @@ class Icon extends Element{
                 }
             }
         });
+    }
+
+    #loadAssets = async function(){
+        this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+        this.#deploy();
     }
 }
