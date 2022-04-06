@@ -2,7 +2,7 @@
 A JS library for building websites.
 
 ## Usage
-### 1. Import the library in your HTML header.
+### 1. Add the library to your HTML header:
 ```
 <script src="https://mattee.net/scripts/carpenter.js">
 ```
