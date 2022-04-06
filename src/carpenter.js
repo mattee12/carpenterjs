@@ -4,7 +4,11 @@ window.onload = function() {
     var importModuleTag = document.createElement('script');
     importModuleTag.src = 'https://mattee.net/scripts/carpenterjs/core/import.js?version=' + createRandomString(10);
     importModuleTag.onload = async function(){
-        loadScript("scripts/init.js?version=" + createRandomString(10), "init");
+        loadScripts([
+            "util/debug",
+            "engine/engine",
+            "init",
+        ]);
     }
     document.head.appendChild(importModuleTag);
 };
@@ -24,3 +28,6 @@ window.onload = function() {
     }
     return result;
 }
+
+//DEFAULTS
+var DEBUG_MODE = false;
