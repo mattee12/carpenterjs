@@ -12,14 +12,14 @@ class Element {
             switch(k){
                 case "w":
                 case "width":
-                    applyStyle(el, {"width": this.p[k]});
+                    applyStyle(this.e, {"width": this.p[k]});
                     break;
                 case "h":
                 case "height":
-                    applyStyle(el, {"height": this.p[k]});
+                    applyStyle(this.e, {"height": this.p[k]});
                     break;
                 case "fadein":
-                    applyStyle(el, {"animation": "fadein .25s linear"});
+                    applyStyle(this.e, {"animation": "fadein .25s linear"});
                     break;
             }
         });
