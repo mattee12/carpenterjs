@@ -1,30 +1,14 @@
-class DatePicker{
+class DatePicker extends Element{
     currentDate; e; listeners;
     constructor(e, p){
-        this.e = e;
-        this.p = p;
+        super(e, p);
         this.listeners = {};
         this.currentDate = new Date();
+        this.#deploy();
     }
 
-    deploy(){
+    #deploy(){
         return new Promise(resolve => {
-            delete this.p["type"];
-            Object.keys(this.p).forEach((k) => {
-                switch(k){
-                    case "w":
-                    case "width":
-                        applyStyle(this.e, {"width": this.p[k]});
-                        break;
-                    case "h":
-                    case "height":
-                        applyStyle(this.e, {"height": this.p[k]});
-                        break;
-                    default:
-                        console.log("Invalid property for " + this.p["type"] + ": " + k);
-                        break;
-                }
-            });
             this.#createCalendar(this.e);
             resolve(true);
         });

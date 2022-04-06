@@ -54,7 +54,6 @@ async function handleElement(e, p){
         switch(p["type"]){
             case "datepicker":
                 var el = new DatePicker(e, p);
-                await el.deploy();
                 REGISTERED_ELEMENTS.pop();
                 break;
             default:
@@ -85,15 +84,12 @@ function placeholder(e, p){
     });
 }
 
-var counter = 0;
-
 function listTree(e){
     if(e.children == null || e.children.length == 0){
         return null;
     }
     var list = [];
     for(var i = 0; i < e.children.length; ++i){
-        counter++;
         var el = e.children[i];
         var lt = listTree(el);
         if(lt != null && lt.length != 0){
