@@ -9,6 +9,7 @@ class DatePicker{
 
     deploy(){
         return new Promise(resolve => {
+            delete this.p["type"];
             Object.keys(this.p).forEach((k) => {
                 switch(k){
                     case "w":
