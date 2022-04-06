@@ -20,25 +20,23 @@ class Icon extends Element{
         this.#deployNetwork();
     }
 
-    #deployNetwork(){
-        return new Promise(resolve => {
-           this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-           Object.keys(this.p).forEach((k) => {
-               switch(k){
-                   case "color1":
-                   case "color2": {
-                       var colorElem = el.querySelector("#" + k);
-                       if(colorElem != null){
-                           colorElem.style.fill = this.p[k];
-                           break;
-                       }
-                       debugPrint("Could not find " + k + " for " + this.type);
-                       break;
-                   }
-               }
-           });
-           super.#deploy();
-           resolve(true);
+    async #deployNetwork(){
+        this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+        Object.keys(this.p).forEach((k) => {
+            switch(k){
+                case "color1":
+                case "color2": {
+                    var colorElem = el.querySelector("#" + k);
+                    if(colorElem != null){
+                        colorElem.style.fill = this.p[k];
+                        break;
+                    }
+                    debugPrint("Could not find " + k + " for " + this.type);
+                    break;
+                }
+            }
         });
+        super.#deploy();
+        resolve(true);
    }
 }
