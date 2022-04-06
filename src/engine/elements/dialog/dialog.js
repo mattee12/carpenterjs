@@ -1,5 +1,5 @@
 loadScripts([
-    "engine/elements/dialog/calendar",
+    "engine/elements/dialog/datepicker",
     "engine/elements/dialog/alert",
     "engine/elements/dialog/yesno"
 ]);
