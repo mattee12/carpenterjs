@@ -33,6 +33,7 @@ function applyStyle(e, s){
  */
 function mergeStyle(target, source){
     Object.keys(source.style).forEach(k => {
+        console.log(k);
         target.style[k] = source.style[k];
     });
 }
