@@ -1,9 +1,9 @@
 function loadCalendar(parent){
-    if (parent.querySelector(".calendar") != null){
-        var e = parent.querySelector(".calendar");
+    //if (parent.querySelector(".calendar") != null){
+        //var e = parent.querySelector(".calendar");
         var dp = new DatePicker(e);
         return dp;
-    }
+    //}
 }
 
 class DatePicker{
