@@ -16,8 +16,8 @@ class Icon extends Element{
         this.#deploy();
     }
     #deploy(){
-        return new Promise(async resolve => {
-           var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+
+           this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
            mergeStyle(el, this.e);
            Object.keys(this.p).forEach((k) => {
                switch(k){
@@ -35,6 +35,6 @@ class Icon extends Element{
            });
            this.e.parentElement.replaceChild(el, this.e);
            resolve(true);
-       });
+
    }
 }
