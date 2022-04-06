@@ -43,7 +43,7 @@ function handleElements(){
 }
 
 async function handleElement(e, p){
-    //await placeholder(e, p);
+    await placeholder(e, p);
     if(p["type"].split("-")[0] == "icon"){
         var el = new Icon(e, p);
         await el.deploy();
@@ -67,8 +67,11 @@ async function handleElement(e, p){
 
 function placeholder(e, p){
     return new Promise(resolve => {
-        if(p["width"] != null && p["height"] != null){
-            applyStyle(e, {"width": p["width"], "height": p["height"]});
+        if((p["width"] != null || p["w"] != null) && (p["height"] != null || p["h"] != null)){
+            if(p["width"] != null){applyStyle(e, {"width": p["width"]});}
+            else{applyStyle(e, {"width": p["w"]});}
+            if(p["height"] != null){applyStyle(e, {"height": p["height"]});}
+            else{applyStyle(e, {"height": p["h"]});}
             var pE = document.createElement("img");
             pE.src = "assets/icons/loading_white.svg";
             applyStyle(pE, {"animation": "spin 1s ease-in-out infinite", "width": "100%", "height": "100%"});
