@@ -13,8 +13,8 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
-        await placeholder(e, p);
-        await this.#loadAssets();
+        placeholder(e, p);
+        this.#loadAssets();
         super.#handleProperties(function(k){
             switch(k){
                 case "color1":
@@ -31,8 +31,11 @@ class Icon extends Element{
         });
     }
 
-    #loadAssets = async function(){
-        this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-        this.#deploy();
+    #loadAssets (){
+        return new Promise(resolve => {
+            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+            this.#deploy();
+            resolve(true);
+        });
     }
 }
