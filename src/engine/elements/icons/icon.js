@@ -32,10 +32,8 @@ class Icon extends Element{
                 }
             }
         });
-        return new Promise(resolve => {
-            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-            this.#deploy();
-            resolve(true);
-        });
+
+        this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+        this.#deploy();
     }
 }
