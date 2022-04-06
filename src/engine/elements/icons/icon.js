@@ -13,30 +13,28 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
-        this.#loadAssets();
+        this.#deploy();
     }
-
-    #loadAssets (){
-        return new Promise(resolve => {
-            placeholder(e, p);
-            super.#handleProperties(function(k){
-                switch(k){
-                    case "color1":
-                    case "color2": {
-                        var colorElem = el.querySelector("#" + k);
-                        if(colorElem != null){
-                            colorElem.style.fill = this.p[k];
-                            break;
-                        }
-                        debugPrint("Could not find " + k + " for " + this.type);
-                        break;
-                    }
-                }
-            });
-    
-            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-            this.#deploy();
-            resolve(true);
-        });
-    }
+    #deploy(){
+        return new Promise(async resolve => {
+           var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+           mergeStyle(el, this.e);
+           Object.keys(this.p).forEach((k) => {
+               switch(k){
+                   case "color1":
+                   case "color2": {
+                       var colorElem = el.querySelector("#" + k);
+                       if(colorElem != null){
+                           colorElem.style.fill = this.p[k];
+                           break;
+                       }
+                       debugPrint("Could not find " + k + " for " + this.type);
+                       break;
+                   }
+               }
+           });
+           this.e.parentElement.replaceChild(el, this.e);
+           resolve(true);
+       });
+   }
 }
