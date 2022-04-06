@@ -32,7 +32,6 @@ class DatePicker extends Element{
             if(key != et) obj[key] = this.listeners[key];
         }
         this.listeners = obj;
-        //console.log(this.listeners);
     }
 
     removeEventListener(et, callback){
@@ -43,7 +42,6 @@ class DatePicker extends Element{
             } else{
                 this.listeners[et] = arr;
             }
-            //console.log(this.listeners[et]);
         }
     }
 

@@ -13,6 +13,7 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
+        await placeholder(e, p);
         this.#deploy();
     }
     #deploy(){
