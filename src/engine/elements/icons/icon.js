@@ -13,10 +13,10 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
-        await placeholder(e, p);
         this.#deploy();
     }
     #deploy(){
+        await placeholder(e, p);
         return new Promise(async resolve => {
             var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
             mergeStyle(el, this.e);
