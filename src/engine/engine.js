@@ -14,7 +14,7 @@ var elementTypes = [
 function handleElements(){
     var styleElement = document.createElement("link")
     styleElement.rel = "stylesheet";
-    styleElement.href = "https://mattee.net/assets/css/carpenter.css?version=" + createRandomString(10);
+    styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
     document.head.appendChild(styleElement);
 
     var elements = listTree(document);
