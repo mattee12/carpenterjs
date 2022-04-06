@@ -17,23 +17,26 @@ class Icon extends Element{
     }
 
     #loadAssets (){
-        placeholder(e, p);
-        super.#handleProperties(function(k){
-            switch(k){
-                case "color1":
-                case "color2": {
-                    var colorElem = el.querySelector("#" + k);
-                    if(colorElem != null){
-                        colorElem.style.fill = this.p[k];
+        return new Promise(resolve => {
+            placeholder(e, p);
+            super.#handleProperties(function(k){
+                switch(k){
+                    case "color1":
+                    case "color2": {
+                        var colorElem = el.querySelector("#" + k);
+                        if(colorElem != null){
+                            colorElem.style.fill = this.p[k];
+                            break;
+                        }
+                        debugPrint("Could not find " + k + " for " + this.type);
                         break;
                     }
-                    debugPrint("Could not find " + k + " for " + this.type);
-                    break;
                 }
-            }
+            });
+    
+            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+            this.#deploy();
+            resolve(true);
         });
-
-        this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-        this.#deploy();
     }
 }
