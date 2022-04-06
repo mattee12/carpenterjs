@@ -13,9 +13,9 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
-        this.#deployRemote();
+        this.#deployNetwork();
     }
-    async #deployRemote(){
+    async #deployNetwork(){
            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
            Object.keys(this.p).forEach((k) => {
                switch(k){
@@ -31,6 +31,6 @@ class Icon extends Element{
                    }
                }
            });
-           super.deploy();
+           super.#deploy();
    }
 }
