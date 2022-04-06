@@ -14,8 +14,12 @@ class Icon extends Element{
     constructor(e, p){
         super(e, p);
         placeholder(e, p);
+        this.#loadAssets();
         this.#deploy();
-        this.el = elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+    }
+
+    #loadAssets(){
+        this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
     }
 
     #deploy(){
