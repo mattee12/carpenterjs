@@ -98,7 +98,7 @@ class DatePicker{
     
         var arrDiv = document.createElement("div");
         applyStyle(arrDiv, {"display": "flex", "flex": "1", "flex-direction": "row", "justify-content": "center", "align-items": "center"});
-        var arrLeft = await elementFromUrl("assets/icons/arrow.svg");
+        var arrLeft = await elementFromUrl("https://mattee.net/assets/icons/arrow.svg");
         applyStyle(arrLeft, {"fill": "#007aff", "width": "14px", "height": "14px",
             "transform": "rotate(45deg)", "cursor": "pointer"});
         arrLeft.addEventListener("click", () => {
@@ -130,7 +130,7 @@ class DatePicker{
             thisObj.#buildMonth(nextMonth, new Date(year, month + 1, thisObj.currentDate.getDate()));
         });
         arrDiv.appendChild(arrLeft);
-        var arrRight = await elementFromUrl("assets/icons/arrow.svg");
+        var arrRight = await elementFromUrl("https://mattee.net/assets/icons/arrow.svg");
         applyStyle(arrRight, {"fill": "#007aff", "width": "14px", "height": "14px",
             "transform": "rotate(-135deg)", "cursor": "pointer"});
         arrRight.addEventListener("click", () => {
@@ -212,8 +212,8 @@ class DatePicker{
             applyStyle(divel, {"display": "flex", "justify-content": "center", "align-items": "center", "flex": "1"});
         }
         applyStyle(yearDiv, {"flex": "2"});
-        var arrLeft = await elementFromUrl("assets/icons/arrow.svg");
-        var arrRight = await elementFromUrl("assets/icons/arrow.svg");
+        var arrLeft = await elementFromUrl("https://mattee.net/assets/icons/arrow.svg");
+        var arrRight = await elementFromUrl("https://mattee.net/assets/icons/arrow.svg");
         applyStyle(arrLeft, {"fill": "#007aff", "width": "14px", "height": "14px",
         "transform": "rotate(45deg)", "cursor": "pointer"});
         applyStyle(arrRight, {"fill": "#007aff", "width": "14px", "height": "14px",
@@ -310,8 +310,8 @@ class DatePicker{
             applyStyle(divel, {"display": "flex", "justify-content": "center", "align-items": "center", "flex": "1"});
         }
         applyStyle(yearDiv, {"flex": "2"});
-        var arrLeft = await elementFromUrl("assets/icons/arrow.svg");
-        var arrRight = await elementFromUrl("assets/icons/arrow.svg");
+        var arrLeft = await elementFromUrl("https://mattee.net/assets/icons/arrow.svg");
+        var arrRight = await elementFromUrl("https://mattee.net/assets/icons/arrow.svg");
         applyStyle(arrLeft, {"fill": "#007aff", "width": "14px", "height": "14px",
         "transform": "rotate(45deg)", "cursor": "pointer"});
         applyStyle(arrRight, {"fill": "#007aff", "width": "14px", "height": "14px",
