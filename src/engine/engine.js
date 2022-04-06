@@ -2,6 +2,7 @@ var REGISTERED_ELEMENTS = [];
 var WAITING_FOR_ELEMENTS = [];
 
 loadScripts([
+    "util/style",
     "engine/elements/element",
     "engine/elements/icons/icon",
     "engine/elements/dialog/dialog"
