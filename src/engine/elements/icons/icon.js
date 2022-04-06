@@ -26,7 +26,7 @@ class Icon extends Element{
             switch(k){
                 case "color1":
                 case "color2": {
-                    var colorElem = el.querySelector("#" + k);
+                    var colorElem = this.el.querySelector("#" + k);
                     if(colorElem != null){
                         colorElem.style.fill = this.p[k];
                         break;

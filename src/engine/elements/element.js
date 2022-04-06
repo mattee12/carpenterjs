@@ -5,6 +5,10 @@ class Element {
         this.type = p["type"];
         this.#handleProperties();
     }
+    #deploy(){
+        mergeStyle(this.el, this.e);
+        this.e.parentElement.replaceChild(this.el, this.e);
+    }
 
     #handleProperties(cb){
         delete this.p["type"];
@@ -26,10 +30,5 @@ class Element {
                 cb(k);
             }
         });
-    }
-
-    #deploy(){
-        mergeStyle(this.el, this.e);
-        this.e.parentElement.replaceChild(this.el, this.e);
     }
 }
