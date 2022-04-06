@@ -69,11 +69,10 @@ async function handleElement(e, p){
 
 function placeholder(e, p){
     return new Promise(resolve => {
-        if((p["width"] != null || p["w"] != null) && (p["height"] != null || p["h"] != null)){
-            console.log(p["width"]);
-            if(p["width"] != null){applyStyle(e, {"width": p["width"]});}
+        if((p["width"] != undefined || p["w"] != undefined) && (p["height"] != undefined || p["h"] != undefined)){
+            if(p["width"] != undefined){applyStyle(e, {"width": p["width"]});}
             else{applyStyle(e, {"width": p["w"]});}
-            if(p["height"] != null){applyStyle(e, {"height": p["height"]});}
+            if(p["height"] != undefined){applyStyle(e, {"height": p["height"]});}
             else{applyStyle(e, {"height": p["h"]});}
             var pE = document.createElement("img");
             pE.src = "https://mattee.net/assets/icons/loading.svg";
