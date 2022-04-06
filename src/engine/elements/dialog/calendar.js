@@ -59,6 +59,7 @@ class DatePicker{
 
     #clearCalendar(e){
         e.querySelectorAll("*").forEach((child) => {
+            if(child==e) console.log("DONT REMOVE CALENDAR");
             child.remove();
         });
     }
