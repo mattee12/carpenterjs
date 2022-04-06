@@ -1,5 +1,18 @@
+window.addEventListener("load", function(){IS_LOADED = true;});
+
+/**
+ * Register a callback to be called when the page is loaded.
+ * If the page is already loaded, the callback is called immediately.
+ * @param {function} cb - The callback to call. 
+ * @returns 
+ */
+function registerWaitingForLoad(cb){
+    if(IS_LOADED){cb();return;}
+    window.addEventListener("load", cb);
+}
+
 //Init CarpenterJS after the document is loaded.
-window.onload = function() {
+registerWaitingForLoad(function() {
     //Loading the import module.
     var importModuleTag = document.createElement('script');
     importModuleTag.src = 'https://mattee.net/scripts/carpenterjs/core/import.js?version=' + createRandomString(10);
@@ -11,7 +24,7 @@ window.onload = function() {
         ]);
     }
     document.head.appendChild(importModuleTag);
-};
+});
 
 /**
  *Generates a random string of the given length.
@@ -31,3 +44,4 @@ window.onload = function() {
 
 //DEFAULTS
 var DEBUG_MODE = false;
+var IS_LOADED = false;
