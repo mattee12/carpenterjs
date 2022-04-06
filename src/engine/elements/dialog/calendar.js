@@ -10,6 +10,21 @@ class DatePicker{
     currentDate; e; listeners;
     constructor(e){
         this.e = e;
+        Object.keys(this.p).forEach((k) => {
+            switch(k){
+                case "w":
+                case "width":
+                    applyStyle(el, {"width": this.p[k]});
+                    break;
+                case "h":
+                case "height":
+                    applyStyle(el, {"height": this.p[k]});
+                    break;
+                default:
+                    console.log("Invalid property for " + this.p["type"] + ": " + k);
+                    break;
+            }
+        });
         this.listeners = {};
         this.currentDate = new Date();
         this.#createCalendar(e);
