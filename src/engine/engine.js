@@ -8,7 +8,7 @@ loadScripts([
 
 var elementTypes = [
     "datepicker",
-    "dialog_alert"
+    "dialog-alert"
 ];
 
 function handleElements(){
@@ -23,7 +23,7 @@ function handleElements(){
         var props = {"type": list[0]};
         list.forEach((s, i) => {
             if(i == 0) return;
-            var splitS = s.split("=");
+            var splitS = s.split("-");
             if(splitS.length == 2){
                 var splitKey = splitS[0].split(",");
                 if(splitKey.length > 0){
