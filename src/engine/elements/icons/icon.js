@@ -16,7 +16,7 @@ class Icon extends Element{
     }
     deploy(){
         return new Promise(async resolve => {
-            var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.p["type"]]);
+            var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
             Object.keys(this.p).forEach((k) => {
                 switch(k){
                     case "color1":
