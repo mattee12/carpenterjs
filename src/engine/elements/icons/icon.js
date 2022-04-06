@@ -37,7 +37,7 @@ class Icon extends Element{
                     }
                 }
             });
-            super.#deploy();
+            this.#deploy();
             resolve(true);
         });
    }
