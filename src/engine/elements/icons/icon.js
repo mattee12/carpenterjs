@@ -13,8 +13,13 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
+        this.#init();
+    }
+
+    #init(){
         this.#deployNetwork();
     }
+
     #deployNetwork(){
         return new Promise(resolve => {
            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
