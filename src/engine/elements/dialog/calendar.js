@@ -1,4 +1,4 @@
-function loadCalendar(parent){
+function loadCalendar(e){
     //if (parent.querySelector(".calendar") != null){
         //var e = parent.querySelector(".calendar");
         var dp = new DatePicker(e);
