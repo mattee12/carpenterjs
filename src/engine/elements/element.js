@@ -6,7 +6,7 @@ class Element {
         this.#handleProperties();
     }
 
-    #handleProperties(){
+    #handleProperties(cb){
         delete this.p["type"];
         Object.keys(this.p).forEach((k) => {
             switch(k){
@@ -22,6 +22,14 @@ class Element {
                     applyStyle(this.e, {"animation": "fadein .25s linear"});
                     break;
             }
+            if(cb != undefined){
+                cb(k);
+            }
         });
+    }
+
+    #deploy(el){
+        mergeStyle(el, this.e);
+        this.e.parentElement.replaceChild(el, this.e);
     }
 }
