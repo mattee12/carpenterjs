@@ -33,9 +33,19 @@ class Icon extends Element{
                     }
                 }
             });
+            await timeoutFunc();
             mergeStyle(el, this.e);
             this.e.parentElement.replaceChild(el, this.e);
             resolve(true);
         });
    }
+}
+
+//Halt for 2 seconds
+async function timeoutFunc(){
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(true);
+        }, 2000);
+    });
 }
