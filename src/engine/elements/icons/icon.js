@@ -19,7 +19,7 @@ class Icon extends Element{
     }
 
     #deploy(){
-        super.#deploy(this.el);
+        super.#deploy();
         super.#handleProperties(function(k){
             switch(k){
                 case "color1":

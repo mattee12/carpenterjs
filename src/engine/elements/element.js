@@ -28,8 +28,8 @@ class Element {
         });
     }
 
-    #deploy(el){
-        mergeStyle(el, this.e);
-        this.e.parentElement.replaceChild(el, this.e);
+    #deploy(){
+        mergeStyle(this.el, this.e);
+        this.e.parentElement.replaceChild(this.el, this.e);
     }
 }
