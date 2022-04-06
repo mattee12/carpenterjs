@@ -24,7 +24,7 @@ class DatePicker{
                         break;
                 }
             });
-            this.#createCalendar(e);
+            this.#createCalendar(this.e);
             resolve(true);
         });
     }
