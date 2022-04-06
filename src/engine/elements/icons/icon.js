@@ -17,7 +17,7 @@ class Icon extends Element{
         this.#loadAssets();
     }
 
-    #loadAssets(){
+    #loadAssets = async function(){
         this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
         this.#deploy();
     }
