@@ -21,7 +21,7 @@ class Icon extends Element{
     }
 
     #deployNetwork(){
-        return new Promise(resolve => {
+        return new Promise(async resolve => {
         this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
         Object.keys(this.p).forEach((k) => {
             switch(k){
