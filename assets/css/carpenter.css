@@ -1,0 +1,49 @@
+@font-face {
+    font-family: Roboto Bold;
+    src: url(https://mattee.net/assets/fonts/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: Roboto Regular;
+    src: url(https://mattee.net/assets/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Roboto Medium;
+    src: url(https://mattee.net/assets/fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: Roboto Light;
+    src: url(https://mattee.net/assets/fonts/Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: Roboto Thin;
+    src: url(https://mattee.net/assets/fonts/Roboto/Roboto-Thin.ttf);
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadein {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 0;
+}
