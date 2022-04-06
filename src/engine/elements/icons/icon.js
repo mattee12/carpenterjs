@@ -13,21 +13,17 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
-        this.#init();
+        this.#deploy();
     }
 
-    #init(){
-        this.#deployNetwork();
-    }
-
-    #deployNetwork(){
+    #deploy(){
         return new Promise(async resolve => {
-            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+            el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
             Object.keys(this.p).forEach((k) => {
                 switch(k){
                     case "color1":
                     case "color2": {
-                        var colorElem = this.el.querySelector("#" + k);
+                        var colorElem = el.querySelector("#" + k);
                         if(colorElem != null){
                             colorElem.style.fill = this.p[k];
                             break;
@@ -37,7 +33,8 @@ class Icon extends Element{
                     }
                 }
             });
-            this.#deploy();
+            mergeStyle(el, this.e);
+            this.e.parentElement.replaceChild(el, this.e);
             resolve(true);
         });
    }
