@@ -15,12 +15,11 @@ class Icon extends Element{
         super(e, p);
         placeholder(e, p);
         this.#deploy();
+        this.el = elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
     }
 
     #deploy(){
-        var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-
-        super.#deploy(el);
+        super.#deploy(this.el);
         super.#handleProperties(function(k){
             switch(k){
                 case "color1":
