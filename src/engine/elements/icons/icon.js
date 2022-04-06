@@ -15,11 +15,11 @@ class Icon extends Element{
         super(e, p);
         placeholder(e, p);
         this.#loadAssets();
-        this.#deploy();
     }
 
     #loadAssets(){
         this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+        this.#deploy();
     }
 
     #deploy(){
