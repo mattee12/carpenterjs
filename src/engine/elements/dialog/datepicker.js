@@ -1,5 +1,5 @@
 class DatePicker extends Element{
-    currentDate; e; listeners;
+    currentDate; listeners;
     constructor(e, p){
         super(e, p);
         this.listeners = {};
