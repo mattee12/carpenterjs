@@ -51,7 +51,7 @@ async function handleElement(e, p){
     } else{
         switch(p["type"]){
             case "calendar":
-                //TODO
+                loadCalendar(e);
                 break;
             default:
                 console.log("Invalid type: " + p["type"]);
