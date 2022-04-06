@@ -1,5 +1,7 @@
-class YesNoDialog{
+class YesNoDialog extends Dialog{
     constructor(t, y, n){
+        super();
+        this.type = "dialog-yesno";
         this.t = t;
         this.y = y;
         this.n = n;

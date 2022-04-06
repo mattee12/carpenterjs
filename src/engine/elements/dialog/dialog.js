@@ -15,5 +15,7 @@ registerWaitingForLoad(function(){
 });
 
 class Dialog extends Element{
-    
+    constructor(){
+        super(DIALOG, {});
+    }
 }
