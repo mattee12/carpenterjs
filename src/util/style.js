@@ -32,8 +32,7 @@ function applyStyle(e, s){
  * @param {HtmlElement} source 
  */
 function mergeStyle(target, source){
-    var s = getComputedStyle(source);
-    for(var i = 0; i < s.length; i++){
-        target.style[s[i]] = s[s[i]];
-    }
+    source.style.forEach(prop=>{
+        target.style[prop] = source.style[prop];
+    });
 }
