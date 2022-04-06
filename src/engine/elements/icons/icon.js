@@ -13,8 +13,8 @@ ICON_TYPES.forEach((type) => {
 class Icon extends Element{
     constructor(e, p){
         super(e, p);
-        placeholder(e, p);
-        this.#loadAssets();
+        await placeholder(e, p);
+        await this.#loadAssets();
         super.#handleProperties(function(k){
             switch(k){
                 case "color1":
