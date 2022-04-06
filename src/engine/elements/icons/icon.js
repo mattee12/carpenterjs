@@ -17,7 +17,6 @@ class Icon extends Element{
     }
     async #deployRemote(){
            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-           mergeStyle(el, this.e);
            Object.keys(this.p).forEach((k) => {
                switch(k){
                    case "color1":
@@ -32,7 +31,6 @@ class Icon extends Element{
                    }
                }
            });
-           this.e.parentElement.replaceChild(el, this.e);
            super.deploy();
    }
 }
