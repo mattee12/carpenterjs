@@ -3,7 +3,6 @@ class Element {
         this.e = e;
         this.p = p;
         this.type = p["type"];
-        this.#handleProperties();
     }
 
     #handleProperties(cb){
