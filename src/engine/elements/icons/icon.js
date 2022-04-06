@@ -15,7 +15,7 @@ class Icon extends Element{
         super(e, p);
         this.#deployRemote();
     }
-    #deployRemote = async function(){
+    async #deployRemote(){
            this.el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
            mergeStyle(el, this.e);
            Object.keys(this.p).forEach((k) => {
