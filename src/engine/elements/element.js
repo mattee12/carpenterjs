@@ -26,11 +26,15 @@ class Element {
                 case "h":
                 case "height": {
                     const k_long = k == "w" ? "width" : k == "h" ? "height" : k;
-                    const size = p[k] == "xs" ? "32px" :
-                    p[k] == "sm" ? "64px" :
+                    const size =
+                    p[k] == "xs" ? "16px" :
+                    p[k] == "xs2" ? "32px" :
+                    p[k] == "sm" ? "48px" :
+                    p[k] == "sm2" ? "64px" :
                     p[k] == "md" ? "128px" :
-                    p[k] == "lg" ? "256px" :
-                    p[k] == "xl" ? "512px" : null;
+                    p[k] == "md2" ? "256px" :
+                    p[k] == "lg" ? "320px" :
+                    p[k] == "xl" ? "480px" : null;
                     applyStyle(this.e, {[k_long]: size ? size : p[k]});
                     break;
                 }
