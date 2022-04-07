@@ -28,12 +28,13 @@ class Element {
                     const k_long = k == "w" ? "width" : k == "h" ? "height" : k;
                     const size =
                     p[k] == "xs" ? "16px" :
-                    p[k] == "xs2" ? "32px" :
-                    p[k] == "sm" ? "48px" :
-                    p[k] == "sm2" ? "64px" :
-                    p[k] == "md" ? "128px" :
-                    p[k] == "md2" ? "256px" :
-                    p[k] == "lg" ? "320px" :
+                    p[k] == "xs2" ? "24px" :
+                    p[k] == "sm" ? "32px" :
+                    p[k] == "sm2" ? "48px" :
+                    p[k] == "md" ? "64px" :
+                    p[k] == "md2" ? "128px" :
+                    p[k] == "lg" ? "256px" :
+                    p[k] == "lg2" ? "320px" :
                     p[k] == "xl" ? "480px" : null;
                     applyStyle(this.e, {[k_long]: size ? size : p[k]});
                     break;
