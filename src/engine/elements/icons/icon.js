@@ -50,6 +50,6 @@ class Icon extends Element{
     async deploy(e){
         var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
         mergeStyle(el, e);
-        this.e.parentElement.replaceChild(el, e);
+        e.parentElement.replaceChild(el, e);
    }
 }
