@@ -26,7 +26,7 @@ class Element {
                 case "h":
                 case "height": {
                     k = k == "w" ? "width" : k == "h" ? "height" : k;
-                    console.log(k);
+                    console.log({[k]: p[k]});
                     applyStyle(this.e, {[k]: p[k]});
                     break;
                 }
