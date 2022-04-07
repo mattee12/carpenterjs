@@ -53,6 +53,7 @@ function handleElements(){
 
 async function handleElement(e, p){
     //await placeholder(e, p);
+    e.setAttribute("sealed", "true");
     const type = p["type"].split("-")[1] ? p["type"].split("-")[0] : p["type"];
     switch(type){
         case "i":
@@ -111,7 +112,7 @@ function listTree(e){
         }
         if(el.classList && el.classList.length != 0 &&
         (elementTypes.includes(el.classList[0].split('-')[1] ? el.classList[0].split('-')[0] : el.classList[0]))){
-            list.push(el);
+            if(!el.getAttribute("sealed")) list.push(el);
         }
     }
     return list;
