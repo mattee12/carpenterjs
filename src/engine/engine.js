@@ -39,6 +39,7 @@ function handleElements(){
             }
             props[s] = "";
         });
+        console.log(props);
         handleElement(e, props);
     });
     return elements;
@@ -71,8 +72,8 @@ async function handleElement(e, p){
 
 function placeholder(e, p){
     return new Promise(resolve => {
-        if((p["width"] != undefined || p["w"] != undefined) && (p["height"] != undefined || p["h"] != undefined)){
-            if(p["width"] != undefined){applyStyle(e, {"width": p["width"]});}
+        if((p["width"] || p["w"]) && (p["height"] || p["h"])){
+            if(p["width"]){applyStyle(e, {"width": p["width"]});}
             else{applyStyle(e, {"width": p["w"]});}
             if(p["height"] != undefined){applyStyle(e, {"height": p["height"]});}
             else{applyStyle(e, {"height": p["h"]});}
