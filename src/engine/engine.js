@@ -9,8 +9,9 @@ loadScripts([
 ]);
 
 var elementTypes = [
-    "datepicker",
-    "dialog-alert"
+    "i", "icon",
+    "dp", "datepicker",
+    "dialog",
 ];
 
 function handleElements(){
@@ -46,23 +47,27 @@ function handleElements(){
 
 async function handleElement(e, p){
     await placeholder(e, p);
-    if(p["type"].split("-")[0] == "icon"){
-        var el = new Icon();
-        el.setProperties(p);
-        await el.deploy(e);
-        REGISTERED_ELEMENTS.pop();
-    } else{
-        switch(p["type"]){
-            case "datepicker":
-                var el = new DatePicker();
-                el.setProperties(p);
-                await el.deploy(e);
-                REGISTERED_ELEMENTS.pop();
-                break;
-            default:
-                console.log("Invalid type: " + p["type"]);
-                break;
+    const type = p["type"].split("-")[1] ? p["type"].split("-")[0] : p["type"];
+    switch(type){
+        case "i":
+        case "icon": {
+            const el = new Icon();
+            el.setProperties(p);
+            await el.deploy(e);
+            REGISTERED_ELEMENTS.pop();
+            break;
         }
+        case "dp":
+        case "datepicker": {
+            const el = new DatePicker();
+            el.setProperties(p);
+            await el.deploy(e);
+            REGISTERED_ELEMENTS.pop();
+            break;
+        }
+        default:
+            console.log("Invalid type: " + p["type"]);
+            break;
     }
     if(REGISTERED_ELEMENTS.length == 0){
         WAITING_FOR_ELEMENTS.forEach((callback) => {
@@ -98,10 +103,8 @@ function listTree(e){
         if(lt != null && lt.length != 0){
             list = list.concat(lt);
         }
-        if(el.classList != null &&
-        el.classList.length != 0 &&
-        (elementTypes.includes(el.classList[0]) ||
-        (el.classList[0].split("-") != undefined) && el.classList[0].split("-")[0] == "icon")){
+        if(el.classList && el.classList.length != 0 &&
+        (elementTypes.includes(el.classList[0].split('-')[1] ? el.classList[0].split('-')[0] : el.classList[0]))){
             list.push(el);
         }
     }
