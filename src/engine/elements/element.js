@@ -25,9 +25,8 @@ class Element {
                 case "width":
                 case "h":
                 case "height": {
-                    k = k == "w" ? "width" : k == "h" ? "height" : k;
-                    console.log({[k]: p[k]});
-                    applyStyle(this.e, {[k]: p[k]});
+                    const k_long = k == "w" ? "width" : k == "h" ? "height" : k;
+                    applyStyle(this.e, {[k_long]: p[k]});
                     break;
                 }
                 case "fadein":
