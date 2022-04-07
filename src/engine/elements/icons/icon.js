@@ -51,7 +51,7 @@ class Icon extends Element{
      * @param {HTMLElement} element - The element to deploy to.
      */
     async deploy(e){
-        var el = await elementFromUrl("https://mattee.net/" + ICON_TYPE[this.type]);
+        var el = await elementFromUrl("https://mattee.net/" + ICON_TYPES[this.type]);
         super.deploy(el);
         if(this.p) this.#handleProperties(this.p);
         e.parentElement.replaceChild(el, e);
