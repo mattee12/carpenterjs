@@ -15,6 +15,10 @@ var elementTypes = [
 ];
 
 registerWaitingForLoad(() => {
+    var styleElement = document.createElement("link")
+    styleElement.rel = "stylesheet";
+    styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
+    document.head.appendChild(styleElement);
     handleElements();
     document.addEventListener("DOMSubtreeModified", function(){
         handleElements();
@@ -22,11 +26,6 @@ registerWaitingForLoad(() => {
 });
 
 function handleElements(){
-    var styleElement = document.createElement("link")
-    styleElement.rel = "stylesheet";
-    styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
-    document.head.appendChild(styleElement);
-
     var elements = listTree(document);
     elements.forEach((e) => {
         var list = e.classList;
