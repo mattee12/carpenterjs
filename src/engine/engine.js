@@ -26,7 +26,7 @@ function handleElements(){
     styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
     document.head.appendChild(styleElement);
 
-    var elements = listTree(document);
+    var elements = REGISTERED_ELEMENTS = listTree(document);
     elements.forEach((e) => {
         var list = e.classList;
         var props = {"type": list[0]};
