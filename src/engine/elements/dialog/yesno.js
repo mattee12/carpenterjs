@@ -6,7 +6,7 @@ class YesNoDialog extends Dialog{
         this.y = y;
         this.n = n;
     }
-    deploy(){
+    #deploy(){
         if(!DIALOG_QUEUE.includes(this)){DIALOG_QUEUE.push(this);}
         if(DIALOG_QUEUE[0] == this){
             var thisObj = this;

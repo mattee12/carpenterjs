@@ -1,16 +1,23 @@
 class Element {
-    constructor(e, p){
-        this.e = e;
-        this.p = p;
-        this.type = p["type"];
-        this.#handleProperties();
-    }
-    #deploy(){
-        mergeStyle(this.el, this.e);
-        this.e.parentElement.replaceChild(this.el, this.e);
+    constructor(){
+        this.type = "element";
+        this.e = document.createElement("div");
     }
 
-    #handleProperties(cb){
+    deploy(e){
+        mergeStyle(e, this.e);
+    }
+
+    /**
+     * Sets the given properties on the element.
+     * @param {object} properties 
+     */
+    setProperties(p){
+        this.#handleProperties(p);
+    }
+
+    #handleProperties(){
+        this.type = this.p["type"];
         delete this.p["type"];
         Object.keys(this.p).forEach((k) => {
             switch(k){
@@ -25,9 +32,6 @@ class Element {
                 case "fadein":
                     applyStyle(this.e, {"animation": "fadein .25s linear"});
                     break;
-            }
-            if(cb != undefined){
-                cb(k);
             }
         });
     }

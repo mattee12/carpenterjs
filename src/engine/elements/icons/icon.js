@@ -11,31 +11,45 @@ ICON_TYPES.forEach((type) => {
 });
 
 class Icon extends Element{
-    constructor(e, p){
-        super(e, p);
-        this.#deploy();
+    constructor(){
+        super();
+        this.type = "icon";
     }
 
-    #deploy(){
-        return new Promise(async resolve => {
-            var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
-            Object.keys(this.p).forEach((k) => {
-                switch(k){
-                    case "color1":
-                    case "color2": {
-                        var colorElem = el.querySelector("#" + k);
-                        if(colorElem != null){
-                            colorElem.style.fill = this.p[k];
-                            break;
-                        }
-                        debugPrint("Could not find " + k + " for " + this.type);
+    /**
+     * Sets the given properties on the element.
+     * @param {object} properties 
+     */
+    setProperties(p){
+        super.setProperties(p);
+        this.#handleProperties(p);
+    }
+
+    #handleProperties(p){
+        Object.keys(this.p).forEach((k) => {
+            switch(k){
+                case "color1":
+                case "color2": {
+                    let colorElem = el.querySelector("#" + k);
+                    if(colorElem != null){
+                        colorElem.style.fill = this.p[k];
                         break;
                     }
+                    debugPrint("Could not find " + k + " for " + this.type);
+                    break;
                 }
-            });
-            mergeStyle(el, this.e);
-            this.e.parentElement.replaceChild(el, this.e);
-            resolve(true);
+            }
         });
+    }
+
+    /**
+     * Deploys the element. This is an asynchronous function,
+     * because it is loading an asset from the internet.
+     * @param {HTMLElement} element - The element to deploy to.
+     */
+    async deploy(e){
+        var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+        mergeStyle(el, e);
+        this.e.parentElement.replaceChild(el, e);
    }
 }
