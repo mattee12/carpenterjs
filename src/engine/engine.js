@@ -52,7 +52,7 @@ function handleElements(){
 }
 
 async function handleElement(e, p){
-    //await placeholder(e, p);
+    await placeholder(e, p);
     const type = p["type"].split("-")[1] ? p["type"].split("-")[0] : p["type"];
     switch(type){
         case "i":
@@ -77,11 +77,6 @@ async function handleElement(e, p){
             break;
     }
     if(REGISTERED_ELEMENTS.length == 0){
-        //Add event listener when DOM changes
-        document.addEventListener("DOMSubtreeModified", async function cb(){
-            document.removeEventListener("DOMSubtreeModified", cb);
-            await handleElements();
-        });
         WAITING_FOR_ELEMENTS.forEach((callback) => {
             callback();
         })
