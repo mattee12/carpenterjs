@@ -23,12 +23,12 @@ class Element {
             switch(k){
                 case "w":
                 case "width":
+                case "h":
+                case "height": {
+                    k = k == "w" ? "width" : k == "h" ? "height" : k;
                     applyStyle(this.e, {"width": p[k]});
                     break;
-                case "h":
-                case "height":
-                    applyStyle(this.e, {"height": p[k]});
-                    break;
+                }
                 case "fadein":
                     applyStyle(this.e, {"animation": "fadein .25s linear"});
                     break;
