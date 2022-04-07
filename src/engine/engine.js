@@ -116,8 +116,4 @@ registerWaitingForLoad(() => {
     styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
     document.head.appendChild(styleElement);
     handleElements();
-    document.addEventListener("DOMSubtreeModified", function cb(){
-        document.removeEventListener("DOMSubtreeModified", cb);
-        handleElements();
-    });
 });
