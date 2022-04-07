@@ -22,7 +22,7 @@ class Icon extends Element{
      */
     setProperties(p){
         super.setProperties(p);
-        this.#handleProperties(p);
+        this.p = p;
     }
 
     #handleProperties(p){
@@ -30,7 +30,7 @@ class Icon extends Element{
             switch(k){
                 case "color1":
                 case "color2": {
-                    let colorElem = el.querySelector("#" + k);
+                    let colorElem = this.e.querySelector("#" + k);
                     if(colorElem != null){
                         colorElem.style.fill = p[k];
                         break;
@@ -50,6 +50,7 @@ class Icon extends Element{
     async deploy(e){
         var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
         mergeStyle(el, this.e);
+        if(this.p) this.#handleProperties(this.p);
         e.parentElement.replaceChild(el, e);
    }
 }
