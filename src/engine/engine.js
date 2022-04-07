@@ -73,6 +73,7 @@ async function handleElement(e, p){
         }
         default:
             console.log("Invalid type: " + p["type"]);
+            REGISTERED_ELEMENTS.pop();
             break;
     }
     if(REGISTERED_ELEMENTS.length == 0){
