@@ -20,13 +20,15 @@ class Icon extends Element{
         this.p = p;
     }
 
-    #setType(p){
+    #setType(){
+        console.log(this.type);
         this.type.includes('-') ? this.type = this.type.split('-')[1]: null;
+        console.log(this.type);
         if(!ICON_TYPES.includes(this.type)) depugPrint("Invalid icon type: " + this.type);
     }
 
     #handleProperties(p){
-        this.#setType(p);
+        this.#setType();
         Object.keys(p).forEach((k) => {
             switch(k){
                 case "c1":
