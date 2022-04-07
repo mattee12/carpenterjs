@@ -81,7 +81,7 @@ function placeholder(e, p){
         if((p["width"] || p["w"]) && (p["height"] || p["h"])){
             if(p["width"]){applyStyle(e, {"width": p["width"]});}
             else{applyStyle(e, {"width": p["w"]});}
-            if(p["height"] != undefined){applyStyle(e, {"height": p["height"]});}
+            if(p["height"]){applyStyle(e, {"height": p["height"]});}
             else{applyStyle(e, {"height": p["h"]});}
             var pE = document.createElement("img");
             pE.src = "https://mattee.net/assets/icons/loading.svg";

@@ -1,14 +1,9 @@
-var ICON_PATH = {}
-var ICON_TYPES = [
-    "icon-change",
-    "icon-tick",
-    "icon-distance",
-    "icon-cross",
+const ICON_TYPES = [
+    "change",
+    "tick",
+    "distance",
+    "cross",
 ]
-
-ICON_TYPES.forEach((type) => {
-    ICON_PATH[type] = "assets/icons/" + type.split("-")[1] + ".svg";
-});
 
 class Icon extends Element{
     constructor(){
@@ -23,6 +18,11 @@ class Icon extends Element{
     setProperties(p){
         super.setProperties(p);
         this.p = p;
+    }
+
+    #setType(p){
+        this.type.includes('-') ? this.type = this.type.split('-')[1]: null;
+        if(!ICON_TYPES.includes(this.type)) depugPrint("Invalid icon type: " + this.type);
     }
 
     #handleProperties(p){
@@ -51,7 +51,7 @@ class Icon extends Element{
      * @param {HTMLElement} element - The element to deploy to.
      */
     async deploy(e){
-        var el = await elementFromUrl("https://mattee.net/" + ICON_PATH[this.type]);
+        var el = await elementFromUrl("https://mattee.net/" + ICON_TYPE[this.type]);
         super.deploy(el);
         if(this.p) this.#handleProperties(this.p);
         e.parentElement.replaceChild(el, e);
