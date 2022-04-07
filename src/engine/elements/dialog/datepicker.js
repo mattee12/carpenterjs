@@ -1,17 +1,14 @@
 class DatePicker extends Element{
     currentDate; listeners;
-    constructor(e, p){
-        super(e, p);
+    constructor(){
+        super();
+        this.type = "datepicker";
         this.listeners = {};
         this.currentDate = new Date();
-        this.#deploy();
     }
 
-    #deploy(){
-        return new Promise(resolve => {
-            this.#createCalendar(this.e);
-            resolve(true);
-        });
+    async deploy(){
+        this.#createCalendar(this.e);
     }
 
     addEventListener(et, callback){

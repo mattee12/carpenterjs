@@ -55,7 +55,9 @@ async function handleElement(e, p){
     } else{
         switch(p["type"]){
             case "datepicker":
-                var el = new DatePicker(e, p);
+                var el = new DatePicker();
+                el.setProperties(p);
+                await el.deploy(e);
                 REGISTERED_ELEMENTS.pop();
                 break;
             default:

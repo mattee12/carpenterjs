@@ -17,8 +17,7 @@ class Element {
     }
 
     #handleProperties(p){
-        this.type = p["type"];
-        delete p["type"];
+        if(p["type"]) this.type = p["type"]; delete p["type"];
         Object.keys(p).forEach((k) => {
             switch(k){
                 case "w":
