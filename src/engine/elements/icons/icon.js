@@ -26,6 +26,7 @@ class Icon extends Element{
     }
 
     #handleProperties(p){
+        this.#setType(p);
         Object.keys(p).forEach((k) => {
             switch(k){
                 case "c1":
@@ -51,7 +52,7 @@ class Icon extends Element{
      * @param {HTMLElement} element - The element to deploy to.
      */
     async deploy(e){
-        var el = await elementFromUrl("https://mattee.net/" + ICON_TYPES[this.type]);
+        var el = await elementFromUrl("https://mattee.net/assets/icons/" + this.type + ".svg");
         super.deploy(el);
         if(this.p) this.#handleProperties(this.p);
         e.parentElement.replaceChild(el, e);
