@@ -14,7 +14,16 @@ var elementTypes = [
     "dialog",
 ];
 
+registerWaitingForLoad(() => {
+    handleElements();
+});
+
 function handleElements(){
+    var styleElement = document.createElement("link")
+    styleElement.rel = "stylesheet";
+    styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
+    document.head.appendChild(styleElement);
+
     var elements = listTree(document);
     elements.forEach((e) => {
         var list = e.classList;
@@ -41,7 +50,7 @@ function handleElements(){
 }
 
 async function handleElement(e, p){
-    //await placeholder(e, p);
+    await placeholder(e, p);
     const type = p["type"].split("-")[1] ? p["type"].split("-")[0] : p["type"];
     switch(type){
         case "i":
@@ -105,11 +114,3 @@ function listTree(e){
     }
     return list;
 }
-
-registerWaitingForLoad(() => {
-    var styleElement = document.createElement("link")
-    styleElement.rel = "stylesheet";
-    styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
-    document.head.appendChild(styleElement);
-    handleElements();
-});
