@@ -14,8 +14,10 @@ var elementTypes = [
     "dialog",
 ];
 
-registerWaitingForLoad(() => {
-    handleElements();
+registerWaitingForScripts(function(){
+    registerWaitingForLoad(() => {
+        handleElements();
+    });
 });
 
 function handleElements(){
