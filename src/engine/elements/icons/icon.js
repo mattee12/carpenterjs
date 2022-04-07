@@ -26,13 +26,13 @@ class Icon extends Element{
     }
 
     #handleProperties(p){
-        Object.keys(this.p).forEach((k) => {
+        Object.keys(p).forEach((k) => {
             switch(k){
                 case "color1":
                 case "color2": {
                     let colorElem = el.querySelector("#" + k);
                     if(colorElem != null){
-                        colorElem.style.fill = this.p[k];
+                        colorElem.style.fill = p[k];
                         break;
                     }
                     debugPrint("Could not find " + k + " for " + this.type);

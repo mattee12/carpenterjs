@@ -16,18 +16,18 @@ class Element {
         this.#handleProperties(p);
     }
 
-    #handleProperties(){
-        this.type = this.p["type"];
-        delete this.p["type"];
-        Object.keys(this.p).forEach((k) => {
+    #handleProperties(p){
+        this.type = p["type"];
+        delete p["type"];
+        Object.keys(p).forEach((k) => {
             switch(k){
                 case "w":
                 case "width":
-                    applyStyle(this.e, {"width": this.p[k]});
+                    applyStyle(this.e, {"width": p[k]});
                     break;
                 case "h":
                 case "height":
-                    applyStyle(this.e, {"height": this.p[k]});
+                    applyStyle(this.e, {"height": p[k]});
                     break;
                 case "fadein":
                     applyStyle(this.e, {"animation": "fadein .25s linear"});
