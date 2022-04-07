@@ -5,6 +5,7 @@ class DatePicker extends Element{
         this.type = "datepicker";
         this.listeners = {};
         this.currentDate = new Date();
+        super.setProperties({"w": "280px", "h": "280px"});
     }
 
     async deploy(e){
