@@ -14,18 +14,6 @@ var elementTypes = [
     "dialog",
 ];
 
-registerWaitingForLoad(() => {
-    var styleElement = document.createElement("link")
-    styleElement.rel = "stylesheet";
-    styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
-    document.head.appendChild(styleElement);
-    handleElements();
-    document.addEventListener("DOMSubtreeModified", function cb(){
-        document.removeEventListener("DOMSubtreeModified", cb);
-        handleElements();
-    });
-});
-
 function handleElements(){
     var elements = listTree(document);
     elements.forEach((e) => {
@@ -121,3 +109,15 @@ function listTree(e){
     }
     return list;
 }
+
+registerWaitingForLoad(() => {
+    var styleElement = document.createElement("link")
+    styleElement.rel = "stylesheet";
+    styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
+    document.head.appendChild(styleElement);
+    handleElements();
+    document.addEventListener("DOMSubtreeModified", function cb(){
+        document.removeEventListener("DOMSubtreeModified", cb);
+        handleElements();
+    });
+});
