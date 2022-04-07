@@ -65,10 +65,6 @@ async function handleElement(e, p){
             break;
     }
     if(REGISTERED_ELEMENTS.length == 0){
-        document.addEventListener("DOMSubtreeModified", async function cb(){
-            document.removeEventListener("DOMSubtreeModified", cb);
-            await handleElements();
-        });
         WAITING_FOR_ELEMENTS.forEach((callback) => {
             callback();
         })
