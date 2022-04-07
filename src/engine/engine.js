@@ -14,6 +14,13 @@ var elementTypes = [
     "dialog",
 ];
 
+registerWaitingForLoad(() => {
+    handleElements();
+    document.addEventListener("DOMSubtreeModified", function(){
+        handleElements();
+    });
+});
+
 function handleElements(){
     var styleElement = document.createElement("link")
     styleElement.rel = "stylesheet";
