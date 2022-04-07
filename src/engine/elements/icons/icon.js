@@ -35,8 +35,7 @@ class Icon extends Element{
     }
 
     #setType(){
-        this.type.includes('-') && this.type.split('-').length > 2 ? this.type = this.type.split('-').splice(0, 1).join('-'): null;
-        console.log(this.type);
+        this.type.includes('-') ? (this.type.split('-').length > 2 ? this.type = this.type.split('-').splice(0, 1).join('-'): this.type.split('-')[1]): null;
         if(!ICON_TYPES.includes(this.type)) depugPrint("Invalid icon type: " + this.type);
     }
 
