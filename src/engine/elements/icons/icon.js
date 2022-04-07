@@ -17,13 +17,11 @@ class Icon extends Element{
      */
     setProperties(p){
         super.setProperties(p);
-        this.p = p;
+        this.#handleProperties(p);
     }
 
     #setType(){
-        console.log(this.type);
         this.type.includes('-') ? this.type = this.type.split('-')[1]: null;
-        console.log(this.type);
         if(!ICON_TYPES.includes(this.type)) depugPrint("Invalid icon type: " + this.type);
     }
 
