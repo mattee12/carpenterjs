@@ -52,7 +52,7 @@ function handleElements(){
 }
 
 async function handleElement(e, p){
-    await placeholder(e, p);
+    //await placeholder(e, p);
     const type = p["type"].split("-")[1] ? p["type"].split("-")[0] : p["type"];
     switch(type){
         case "i":
