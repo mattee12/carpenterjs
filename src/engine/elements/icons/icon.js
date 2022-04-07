@@ -1,4 +1,18 @@
 const ICON_TYPES = [
+    "add",
+    "arrow",
+    "calendar",
+    "clock",
+    "comment",
+    "comment-abc",
+    "loading",
+    "meatballs",
+    "moon",
+    "remove",
+    "required",
+    "required-bold",
+    "size",
+    "sun",
     "change",
     "tick",
     "distance",
@@ -21,7 +35,7 @@ class Icon extends Element{
     }
 
     #setType(){
-        this.type.includes('-') ? this.type = this.type.split('-')[1]: null;
+        this.type.includes('-') ? this.type = this.type.split('-').splice(0, 1).join('-'): null;
         if(!ICON_TYPES.includes(this.type)) depugPrint("Invalid icon type: " + this.type);
     }
 
