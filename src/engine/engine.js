@@ -20,7 +20,8 @@ registerWaitingForLoad(() => {
     styleElement.href = "https://mattee.net/assets/carpenter/css/carpenter.css?version=" + createRandomString(10);
     document.head.appendChild(styleElement);
     handleElements();
-    document.addEventListener("DOMSubtreeModified", function(){
+    document.addEventListener("DOMSubtreeModified", function cb(){
+        document.removeEventListener("DOMSubtreeModified", cb);
         handleElements();
     });
 });
@@ -52,8 +53,7 @@ function handleElements(){
 }
 
 async function handleElement(e, p){
-    //await placeholder(e, p);
-    e.setAttribute("sealed", "true");
+    await placeholder(e, p);
     const type = p["type"].split("-")[1] ? p["type"].split("-")[0] : p["type"];
     switch(type){
         case "i":
@@ -77,6 +77,10 @@ async function handleElement(e, p){
             break;
     }
     if(REGISTERED_ELEMENTS.length == 0){
+        document.addEventListener("DOMSubtreeModified", function cb(){
+            document.removeEventListener("DOMSubtreeModified", cb);
+            handleElements();
+        });
         WAITING_FOR_ELEMENTS.forEach((callback) => {
             callback();
         })
@@ -112,7 +116,7 @@ function listTree(e){
         }
         if(el.classList && el.classList.length != 0 &&
         (elementTypes.includes(el.classList[0].split('-')[1] ? el.classList[0].split('-')[0] : el.classList[0]))){
-            if(!el.getAttribute("sealed")) list.push(el);
+            list.push(el);
         }
     }
     return list;
