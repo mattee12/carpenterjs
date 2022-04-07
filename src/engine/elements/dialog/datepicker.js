@@ -7,7 +7,8 @@ class DatePicker extends Element{
         this.currentDate = new Date();
     }
 
-    async deploy(){
+    async deploy(e){
+        super.deploy(e);
         this.#createCalendar(this.e);
     }
 

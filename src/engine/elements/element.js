@@ -6,6 +6,7 @@ class Element {
 
     deploy(e){
         mergeStyle(e, this.e);
+        this.e = e;
     }
 
     /**
