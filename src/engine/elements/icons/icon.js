@@ -28,8 +28,11 @@ class Icon extends Element{
     #handleProperties(p){
         Object.keys(p).forEach((k) => {
             switch(k){
+                case "c1":
                 case "color1":
+                case "c2":
                 case "color2": {
+                    k = k == "c1" ? "color1" : k == "c2" ? "color2" : k; 
                     let colorElem = this.e.querySelector("#" + k);
                     if(colorElem != null){
                         colorElem.style.fill = p[k];
