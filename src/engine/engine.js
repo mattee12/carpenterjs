@@ -39,7 +39,6 @@ function handleElements(){
             }
             props[s] = "";
         });
-        console.log(props);
         handleElement(e, props);
     });
     return elements;
