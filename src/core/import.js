@@ -64,7 +64,7 @@ async function loadScripts(modules){
     var errorCount = 0;
     for(var i = 0; i < length; i++){
         var e = modules[i];
-        var result = await loadScript("https://mattee.net/scripts/carpenterjs/" + e.toString() + ".js?version=" + createRandomString(10), e.toString());
+        var result = await loadScript(ROOT_URL + e.toString() + ".js?version=" + createRandomString(10), e.toString());
         if(!result){
             result = await loadScript("scripts/" + e.toString() + ".js?version=" + createRandomString(10), e.toString());
             if(!result){console.log("Failed to load " + e.toString()); errorCount++;}

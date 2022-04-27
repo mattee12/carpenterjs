@@ -1,4 +1,5 @@
 window.addEventListener("load", function(){IS_LOADED = true;});
+let ROOT_URL = "";
 
 /**
  * Register a callback to be called when the page is loaded.
@@ -13,9 +14,15 @@ function registerWaitingForLoad(cb){
 
 //Init CarpenterJS after the document is loaded.
 registerWaitingForLoad(function() {
+    document.head.querySelectorAll("script").forEach((s) => {
+        if(s.src.includes("carpenter.js")){
+            //remove the script file name from HOST
+            ROOT_URL = s.src.substring(0, s.src.lastIndexOf("/")) + "/";
+        }
+    });
     //Loading the import module.
     var importModuleTag = document.createElement('script');
-    importModuleTag.src = 'https://mattee.net/scripts/carpenterjs/core/import.js?version=' + createRandomString(10);
+    importModuleTag.src = ROOT_URL + 'core/import.js?version=' + createRandomString(10);
     importModuleTag.onload = async function(){
         loadScripts([
             "util/debug",
